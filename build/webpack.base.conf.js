@@ -5,8 +5,7 @@ var projectRoot = path.resolve(__dirname, '../')
 
 var autoprefixer = require('autoprefixer');
 var glob = require('glob');
-var entries = getEntry('./src/module/**/*.js'); // 获得入口js文件
-
+var entries = getEntry('./src/module/**/*.js'); 
 var env = process.env.NODE_ENV
 // check env & config/index.js to decide weither to enable CSS Sourcemaps for the
 // various preprocessor loaders added to vue-loader at the end of this file
@@ -93,7 +92,7 @@ function getEntry(globPath) {
   glob.sync(globPath).forEach(function (entry) {
     basename = path.basename(entry, path.extname(entry));
     tmp = entry.split('/').splice(-3);
-    pathname = tmp.splice(0, 1) + '\/' + basename; // 正确输出js和html的路径
+    pathname = tmp.splice(0, 1) + '\/' + basename; 
     entries[pathname] = entry;
   });
   return entries;
