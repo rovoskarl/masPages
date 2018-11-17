@@ -43,6 +43,10 @@ module.exports = {
     ],
     loaders: [
       {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader'
+      },
+      {
         test: /\.vue$/,
         loader: 'vue'
       },
@@ -76,9 +80,6 @@ module.exports = {
   },
   // js 中引入的样式处理
   postcss: [autoprefixerConf],
-  eslint: {
-    formatter: require('eslint-friendly-formatter')
-  },
   vue: {
     loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
     postcss: [autoprefixerConf]
